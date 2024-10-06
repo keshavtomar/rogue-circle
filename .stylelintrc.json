@@ -1,0 +1,15 @@
+{
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-prettier"
+    ],
+    "ignoreFiles": [
+      "**/*.js", 
+      "**/*.ts", 
+      "**/*.jsx", 
+      "**/*.tsx", 
+      "next.config.js", 
+      "next.config.ts"
+    ]
+  }
+  
