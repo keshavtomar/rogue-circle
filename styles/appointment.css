@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.appointment * {
+  font-family: "Montserrat", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 500 !important;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.appointment {
+  background: linear-gradient(
+    128deg,
+    rgba(32, 40, 43, 1) 22%,
+    rgba(16, 21, 24, 1) 75%
+  );
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  line-height: 1.6;
+  height: 100%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.appointment-form {
+  color: white;
+}
+
+.unique-form-container {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 800px;
+  height: 270px;
+  margin: 0 auto;
+  padding: 10px 50px;
+  border-radius: 150px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  color: wheat;
+  backdrop-filter: blur(10px);
+  background-color: rgba(88, 85, 85, 0.519);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: all 0.3s;
+}
+
+.unique-form-container.move-up {
+  top:20%;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.unique-form-input-blocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.unique-form-group {
+  margin: 0px 30px 15px;
+}
+
+.unique-form-label {
+  display: block;
+  font-weight: bold;
+}
+.unique-form-input {
+  width: 100%;
+  padding: 4px 4px 4px 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  box-sizing: border-box;
+  background: none;
+  color: white;
+}
+
+.unique-form-input:focus {
+  border-bottom-color: #a68954;
+  outline: none;
+}
+
+.unique-form-checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 13px;
+  padding: 10px 50px;
+}
+
+.unique-form-button {
+  padding: 10px 70px;
+}
+
+.unique-form-checkbox input {
+  margin-right: 10px;
+}
+
+.unique-form-submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #a68954;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.unique-form-submit:hover {
+  background-color: #9a804f;
+}
+
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.af-stars {
+  background: black
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+}
+
+.af-twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png")
+    repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+
+  -moz-animation: move-background 50s linear infinite;
+  -ms-animation: move-background 50s linear infinite;
+  -o-animation: move-background 50s linear infinite;
+  -webkit-animation: move-background 50s linear infinite;
+  animation: move-background 50s linear infinite;
+}
+
+.af-clouds {
+  width: 10000px;
+  height: 100%;
+  background: transparent
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png")
+    repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite;
+}
+
+.background-container img {
+  height: 120vh;
+  width: 120vh;
+  position: absolute;
+  z-index: 3;
+  right: 50%;
+  top: -70%;
+  transform: translateX(50%);
+}
+
+.unique-form-button button {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 25px;
+  width: 100%;
+  color: #a68954;
+  height: 35px;
+}
+
+#selectInput option {
+  color: #a68954;
+}
+
+#selectInput option:hover {
+  color: white;
+  background-color: #a68954;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader1 {
+  width: 20px;
+  margin: auto;
+
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side, #fff 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
+
+.est-container2{
+  position: absolute;
+  bottom: -20px;
+  transform: translateX(50%);
+  left: 56%;
+}
+
+#est2{
+  width: 100px;
+  height: 100px;
+  animation: rotate 25s infinite linear;
+}
+
+.established-container {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  bottom: 40px;
+
+  animation: rotate 25s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: translateX(-50px) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50px) rotate(360deg);
+  }
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: white;
+}
+
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Remove the spin buttons in Webkit browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

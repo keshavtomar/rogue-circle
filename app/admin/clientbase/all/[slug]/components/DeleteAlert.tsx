@@ -27,7 +27,7 @@ export default function DeleteAlert({
   return (
     <Alert
       variant="destructive"
-      className="absolute w-fit bg-white shadow-2xl dark:shadow-zinc-700 dark:bg-[#09090b]"
+      className="w-fit bg-white shadow-2xl dark:shadow-zinc-700 dark:bg-[#09090b] relative top-[-80px] left-[-20px]"
     >
       <ExclamationTriangleIcon className="h-4 w-4" />
       <AlertTitle>Warning</AlertTitle>

@@ -1,6 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
 import { db } from "../firebase";
-import { redirect } from "next/navigation";
 import {
   collection,
   getDocs,
@@ -10,8 +9,10 @@ import {
   deleteDoc,
   limit,
   startAfter,
+  where,
 } from "firebase/firestore";
 import { clientBasePageSize } from "../../../admin/data";
+import {decrementAppointmentCount} from "../utilities"
 
 export async function GET(request: NextRequest) {
   try {
@@ -93,11 +94,62 @@ export async function DELETE(request: NextRequest) {
 
     const docRef = doc(db, "Appointments", id);
     await deleteDoc(docRef);
+    await decrementAppointmentCount();
 
     return NextResponse.json({ message: "Client Deleted" }, { status: 200 });
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json({ message: error.message }, { status: 500 });
+    }
+    return NextResponse.json(
+      { message: "An unexpected error occurred." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const { searchTerm } = await request.json();
+
+    if (!searchTerm) {
+      return NextResponse.json({ message: "Search term is required" }, { status: 400 });
+    }
+
+    const clientCollectionRef = collection(db, "Appointments");
+
+    const clientQuery = query(
+      clientCollectionRef,
+      where("name", "==", searchTerm),
+    );
+
+    const clientQuery2 = query(
+      clientCollectionRef,
+      where("phone","==",searchTerm)
+    )
+
+    const clientDataSnapshot = await getDocs(clientQuery);
+    const data = clientDataSnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    const clientDataSnapshot2 = await getDocs(clientQuery2);
+    const data2 = clientDataSnapshot2.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    data.push(...data2);
+
+    if(data.length === 0){
+     return NextResponse.json({message: "No data found", data: [], status:100});
+    }
+
+    return NextResponse.json({message:"success",data:data, status:200});
+  } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json({ message: error.message ,  status: 500 });
     }
     return NextResponse.json(
       { message: "An unexpected error occurred." },

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useContext } from "react";
 import { statsTypes } from "@/app/types";
-import { clientBasePageSize } from "../../data";
+import { clientBasePageSize } from "../../../data";
 import { PaginationContext } from "../layout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -30,6 +30,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       console.log("Total pages here are now "+ totalPages)
     };
     fetchTotalPages();
-  }, [totalPages]);
+  }, [setTotalPages, totalPages]);
   return <div>{children}</div>;
 }

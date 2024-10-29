@@ -32,7 +32,7 @@ export default function PaginationComponent() {
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="/admin/clientbase/1" />
+          <PaginationPrevious href="/admin/clientbase/all/1" />
         </PaginationItem>
         {leftPages > 2 && (
           <PaginationItem>
@@ -42,7 +42,7 @@ export default function PaginationComponent() {
         {paginationArray.map((item) => {
           return (
             <PaginationItem key={item}>
-              <PaginationLink href={"/admin/clientbase/" + item} isActive={item === page}>
+              <PaginationLink href={"/admin/clientbase/all/" + item} isActive={item === page}>
                 {item}
               </PaginationLink>
             </PaginationItem>
@@ -54,7 +54,7 @@ export default function PaginationComponent() {
           </PaginationItem>
         )}
         <PaginationItem>
-          <PaginationNext href={"/admin/clientbase/" + (totalPages)} />
+          <PaginationNext href={"/admin/clientbase/all/" + (totalPages)} />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

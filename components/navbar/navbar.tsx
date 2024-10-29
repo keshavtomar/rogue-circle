@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
   MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
 } from "@/components/ui/menubar";
 import { Menu, X } from "lucide-react";
 import { ModeToggle } from "../theme-toggle";

@@ -5,7 +5,10 @@ import { PaginationContext } from "../layout";
 import { useRouter } from "next/navigation";
 import PaginationComponent from "./components/PaginationComponent";
 import ClientCard from "./components/ClientCard";
-import { clientBasePageSize } from "../../data";
+import { clientBasePageSize } from "../../../data";
+import { ClientTypes } from "@/app/types";
+
+type  ClientDataType = ClientTypes[];
 
 export default function Page({ params }: { params: { slug: number } }) {
   const { setPage, totalPages } = useContext(PaginationContext);
@@ -20,7 +23,7 @@ export default function Page({ params }: { params: { slug: number } }) {
   useEffect(() => {
     const slugAsNumber = Number(params.slug);
     if (isNaN(slugAsNumber) || slugAsNumber < 1 || slugAsNumber > totalPages) {
-      router.push("/admin/clientbase/1");
+      router.push("/admin/clientbase/all/1");
       return; // Prevent further execution
     }
 
@@ -40,7 +43,9 @@ export default function Page({ params }: { params: { slug: number } }) {
       setIsLoading(false);
     };
     fetchData();
-  }, [params.slug, router, setPage, totalPages]); // Added `params.slug` as a dependency
+  }, [params.slug, router, setPage, totalPages]); 
+
+
 
   if (isLoading) {
     return (
@@ -52,7 +57,7 @@ export default function Page({ params }: { params: { slug: number } }) {
   return (
     <div>
       <div className="client-base-container flex flex-wrap content-center justify-center mb-10">
-        {clientData.map((client, index) => {
+        {clientData?.map((client:ClientTypes, index:number) => {
           return (
             <ClientCard
               key={Number(params.slug) * clientBasePageSize + index}
