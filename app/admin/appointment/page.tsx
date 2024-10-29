@@ -68,7 +68,7 @@ export default function AppointmentForm() {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/admin/appointment`,
+        "/api/admin/appointment",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
