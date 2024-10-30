@@ -12,8 +12,9 @@ export function middleware(req: NextRequest) {
   if (pathname.startsWith('/admin')) {
     const authToken = req.cookies.get('authToken')?.value;
 
+    console.log(authToken);
+    console.log(process.env.Token);
     if (!authToken || authToken !== process.env.Token) {
-      console.log('redirecting to admin login');
       return NextResponse.redirect(new URL('/admin-login', req.url));
     }
   }
