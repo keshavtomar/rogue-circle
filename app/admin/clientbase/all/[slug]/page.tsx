@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext, useEffect, useState } from "react";
-import { PaginationContext } from "../layout";
+import { PaginationContext } from "../pagination";
 import { useRouter } from "next/navigation";
 import PaginationComponent from "./components/PaginationComponent";
 import ClientCard from "./components/ClientCard";

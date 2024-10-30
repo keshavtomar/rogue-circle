@@ -2,7 +2,7 @@
 import React, { useEffect, useContext } from "react";
 import { statsTypes } from "@/app/types";
 import { clientBasePageSize } from "../../../data";
-import { PaginationContext } from "../layout";
+import { PaginationContext } from "../pagination";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { setTotalPages, totalPages } = useContext(PaginationContext);

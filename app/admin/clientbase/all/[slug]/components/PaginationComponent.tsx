@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useContext, useState } from "react";
-import { PaginationContext } from "../../layout";
+import { PaginationContext } from "../../pagination";
 import {
   Pagination,
   PaginationContent,

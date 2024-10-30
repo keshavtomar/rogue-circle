@@ -13,7 +13,7 @@ import { useCopyToClipboard } from "usehooks-ts";
 import React from "react";
 import DeleteAlert from "./DeleteAlert";
 import { convertOptionToFoundVia } from "@/lib/utils";
-import { PaginationContext } from "../../layout";
+import { PaginationContext } from "../../pagination";
 import CopyIcon from "@/lib/icons/copy.svg";
 import Image from "next/image";
 import {

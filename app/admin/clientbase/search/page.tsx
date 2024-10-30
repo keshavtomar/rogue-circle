@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useMediaQuery } from "@uidotdev/usehooks";
 import Loader from "@/components/ui/loader";
 import { ClientTypes } from "@/app/types";
 import { Label } from "@radix-ui/react-menubar";
@@ -11,7 +10,6 @@ import ClientCard from "../all/[slug]/components/ClientCard";
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
-  const isMobile = useMediaQuery("only screen and (max-width : 768px)");
   const [message, setMessage] = useState("");
   const [isloading, setIsloading] = useState(false);
   const [searchResults, setSearchResults] = useState<ClientTypes[]>([]);

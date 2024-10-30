@@ -1,20 +1,6 @@
-"use client";
-import React, { useState, createContext } from "react";
-
-export const PaginationContext = createContext<{
-  page: number;
-  setPage: (page: number) => void;
-  totalPages: number;
-  setTotalPages: (totalPages: number) => void;
-}>({ page: 1, setPage: () => {}, totalPages: 2, setTotalPages: () => {} });
+import React from "react";
+import Pagination from "./pagination";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(10);
-
-  return (
-    <PaginationContext.Provider value={{ page, setPage, totalPages, setTotalPages }}>
-      <div>{children}</div>
-    </PaginationContext.Provider>
-  );
+  return <Pagination>{children}</Pagination>;
 }
