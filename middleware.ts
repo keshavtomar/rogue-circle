@@ -13,7 +13,7 @@ export function middleware(req: NextRequest) {
     const authToken = req.cookies.get('authToken')?.value;
 
     console.log(process.env.Token);
-    if (!authToken || authToken !== process.env.Token) {
+    if (!authToken || authToken !== process.env.TOKEN) {
       return NextResponse.redirect(new URL('/admin-login', req.url));
     }
   }
