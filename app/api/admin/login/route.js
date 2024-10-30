@@ -11,7 +11,7 @@ export async function POST(request) {
       "Set-Cookie",
       serialize("authToken", process.env.Token, {
         httpOnly: true,
-        sameSite: "strict",
+        sameSite: "lax",
         maxAge: 60 * 60 * 24 * 7, // 1 week
         path: "/",
       })
